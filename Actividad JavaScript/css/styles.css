@@ -128,10 +128,6 @@ img {
 
 /* Navegacion */
 
-.sticky{
-  position: sticky;
-  top: 0;
-}
 
 .navegacion {
   background-color: black;  

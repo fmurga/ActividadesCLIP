@@ -5,35 +5,34 @@
   <meta charset="UTF-8" />
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
   <title>New Era Drinks&Wines</title>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../css/normalize.css" />
   <link rel="stylesheet" href="../css/styles.css" />
-  
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/98cbb78275.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body class="color-fondo">
-    <section>
-  <header class="site-header ">
-    <div class="hero">
-      <div class="contenido-hero">
-        <a href="../html/index.html">
-          <img src="../img/site-logo.png" alt="decoracion superior" />
-          <h1 class="text-succes" style="text-align: center">New Era</h1>
-          <h2>Drinks & Wines</h2>
-          <img id="decoracionInferior" src="../img/site-logo.png" alt="decoracion inferior" />
-        </a>
+  <section>
+    <header class="site-header ">
+      <div class="hero">
+        <div class="contenido-hero">
+          <a href="../html/index.html">
+            <img src="../img/site-logo.png" alt="decoracion superior" />
+            <h1 class="text-succes" style="text-align: center">New Era</h1>
+            <h2>Drinks & Wines</h2>
+            <img id="decoracionInferior" src="../img/site-logo.png" alt="decoracion inferior" />
+          </a>
+        </div>
       </div>
-    </div>
-    <div>
+      <div>
 
-  </header>
-  <!-- Header -->
+    </header>
+    <!-- Header -->
   </section>
   <main>
     <div class="navegacion container-fluid sticky-top">
@@ -55,11 +54,33 @@
       </nav>
     </div>
     <section class="container contenedor">
-        <p id="last-name"></p>
-        <script>
-                var lastName;
-                document.getElementById("last-name").innerHTML = lastName;
-        </script>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row center">
+              <p id="adivinanza"></p>
+            </div>
+            <div class="row center">
+              <input class="btn1 btn-primary" id="nueva" type="button" onclick="Adiv()" value="Nueva">
+            </div>
+            <!--             <div class="row center">
+              <input class="btn1 btn-secondary" id="reinicia" type="button" onclick="reiniciar()" value="Volver a Adivinar">
+            </div> -->
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <form id="adiv" name="adiv">
+                <input id="answer" type="text" name="adivinanza" placeholder="Respuesta">
+                <input class="btn1" id="boton" type="button" value="Adivinar" onclick="responder();">
+              </form>
+              <div class="row center">
+                <label>Intentos</label>
+                <p id="intento">4</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
   <footer class="site-footer">
@@ -82,6 +103,7 @@
       </nav>
     </div>
   </footer>
+  <script src="../js/adivinanza.js"></script>
 </body>
 
 </html>
