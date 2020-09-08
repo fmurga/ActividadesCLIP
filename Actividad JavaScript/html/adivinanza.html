@@ -60,9 +60,9 @@
             <div class="row center">
               <p id="adivinanza"></p>
             </div>
-            <div class="row center">
+            <!--           <div class="row center">
               <input class="btn1 btn-primary" id="nueva" type="button" onclick="Adiv()" value="Nueva">
-            </div>
+            </div> -->
             <!--             <div class="row center">
               <input class="btn1 btn-secondary" id="reinicia" type="button" onclick="reiniciar()" value="Volver a Adivinar">
             </div> -->
@@ -70,12 +70,20 @@
           <div class="col-md-6">
             <div class="row">
               <form id="adiv" name="adiv">
-                <input id="answer" type="text" name="adivinanza" placeholder="Respuesta">
-                <input class="btn1" id="boton" type="button" value="Adivinar" onclick="responder();">
+                <input id="answer" type="text"  name="respuesta" placeholder="Respuesta">
+                <input class="btn1 btn-primary"  id="boton" type="button" value="Adivinar" onclick="responder();">
+                <input  class="btn1 btn-primary" hiiden id="nuevo" type="button" value="Reiniciar" onclick="intentardenuevo();">
+
               </form>
               <div class="row center">
                 <label>Intentos</label>
-                <p id="intento">4</p>
+                <p id="intento"></p>
+                <div id="alerta">
+
+                </div>
+                <div id="pista">
+
+                </div>
               </div>
             </div>
           </div>

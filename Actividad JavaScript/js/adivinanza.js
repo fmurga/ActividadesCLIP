@@ -1,41 +1,48 @@
-var adivinanzas = ["Si las dejamos se pasan, si las vendemos se pesan, si se hacen vino se pisan,si las dejamos se posan.",
-    "Soy blanco, soy tinto,de color todo lo pinto,estoy en la buena mesa y me subo a la cabeza.",
-    "Una vieja jorobada, con un hijo enredador, con muchas niñas bonitas y un nieto predicador."
-];
-var respuestas = [["Uva", "La Uva", "Uvas"],["Vino", "El Vino"],["La parra","vid", "La vid", "parra"]];
-var res = document.getElementById('answer')
-/* document.getElementById("reinicia").style.visibility = "hidden"; */
-var inidice_aleatorio = Math.floor(Math.random() * adivinanzas.length);
-document.getElementById("adivinanza").innerHTML = adivinanzas[inidice_aleatorio];
-function Adiv(){
+var adivinanza = 'Si las dejamos se pasan, si las vendemos se pesan, si se hacen vino se pisan,si las dejamos se posan.';
+var respuestas1 = 'UVAS';
+var alerta = document.getElementById("alerta");
+var pista = document.getElementById("pista");
+var contar = 4;
+document.getElementById("intento").innerHTML = contar;
+document.getElementById("adivinanza").innerHTML = adivinanza;
+document.getElementById('nuevo').style.visibility = "hidden";
+var respuesta = document.getElementById('answer');
+
+function responder() {
     event.preventDefault()
-    var inidice_aleatorio = Math.floor(Math.random() * adivinanzas.length);
-    document.getElementById("adivinanza").innerHTML = adivinanzas[inidice_aleatorio];
-    adivinanzas.splice(inidice_aleatorio, 1);
-    if(adivinanzas.length == 0){
-        document.getElementById("adivinanza").innerHTML = 'No tenemos más Adivinanzas para ti';
-        document.getElementById("nueva").style.visibility = "hidden";
-        document.getElementById("reinicia").style.visibility = "visible";
+    var resp = respuesta.value.toUpperCase();
+    if (respuestas1 == resp) {
+        alerta.innerHTML = '<div class="alert alert-success" id="alert" style="width:70%;margin-left:15%" role="alert">CORRECTO! FELICITACIONES!</div>';
+    } else {
+        contar--;
+        switch (contar) {
+            case 3:
+                alerta.innerHTML = '<div class="alert alert-warning" id="alert" style="width:70%;margin-left:15%" role="alert">INCORRECTO! INTENTE NUEVAMENTE!</div>';
+                document.getElementById("intento").innerHTML = contar;
+                break;
+            case 2:
+                alerta.innerHTML = '<div class="alert alert-warning" id="alert" style="width:70%;margin-left:15%" role="alert">INCORRECTO! INTENTE NUEVAMENTE!</div>';
+                pista.innerHTML = '<div class="alert alert-info" id="alert" style="width:70%;margin-left:15%" role="alert">Pista Es color morada</div>'
+                document.getElementById("intento").innerHTML = contar;
+                break;
+            case 1:
+                alerta.innerHTML = '<div class="alert alert-warning" id="alert" style="width:70%;margin-left:15%" role="alert">INCORRECTO! INTENTE NUEVAMENTE!</div>';
+                pista.innerHTML = '<div class="alert alert-info" id="alert" style="width:70%;margin-left:15%" role="alert">Pista es redonda</div>'
+                document.getElementById("intento").innerHTML = contar;
+                break;
+            case 0:
+                alerta.innerHTML = '<div class="alert alert-danger" id="alert" style="width:70%;margin-left:15%" role="alert">NO TIENE MAS INTENTOS</div>';
+                pista.innerHTML = ''
+                document.getElementById("intento").innerHTML = contar;
+                document.getElementById('nuevo').style.visibility = "visible";
+                break;
+        }
     }
 }
 
-function responder(){
-    event.preventDefault()
-    var resUsu = res.value;
-    if(resUsu in respuestas){
-        alert.innerHTML = '<div class="alert alert-success" id="alert" style="width:70%;margin-left:15%" role="alert">CORRECTO! FELICITACIONES!</div>'
-    }
+function intentardenuevo(){
+    contar = 4;
+    alerta.innerHTML = '';
+    document.getElementById("intento").innerHTML = contar;
+    document.getElementById('nuevo').style.visibility = "hidden";
 }
-
-/* function reiniciar(){
-    var adivinanzas = ["Si las dejamos se pasan, si las vendemos se pesan, si se hacen vino se pisan,si las dejamos se posan.",
-        "Soy blanco, soy tinto,de color todo lo pinto,estoy en la buena mesa y me subo a la cabeza.",
-        "Una vieja jorobada, con un hijo enredador, con muchas niñas bonitas y un nieto predicador."
-    ];
-    document.getElementById("reinicia").style.visibility = "hidden";
-    var inidice_aleatorio = Math.floor(Math.random() * adivinanzas.length);
-    alert(adivinanzas.length)
-    document.getElementById("adivinanza").innerHTML = adivinanzas[inidice_aleatorio];
-    document.getElementById("nueva").style.visibility = "visible";
-} */
-
